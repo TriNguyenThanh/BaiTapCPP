@@ -7,7 +7,6 @@ int index(int a[100], int n, int SoCanTim);
 
 int main(){
     int sopt, a[100], SoLon2, SoLon1, Vt, x;
-    printf("Nguyen Thanh Tri\n");
     printf("Nhap so phan tu cua mang: ");
     scanf("%d", &sopt);
 
@@ -32,9 +31,9 @@ int main(){
 }
 
 void NhapMang(int a[100], int n){
-    printf("Nhap mang co %d phan tu: ", n);
+    printf("Nhap mang co %d phan tu: \n", n);
     for (int i = 0 ; i < n; i++){
-        printf("\na[%d] = ", i);
+        printf("a[%d] = ", i);
         scanf("%d", &a[i]);
     }
 }
