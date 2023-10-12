@@ -64,6 +64,7 @@ int Max2(int a[100], int n, int Max1){
     }
     return MAX;
 }
+
 int index(int a[100], int n, int SoCanTim){
     for (int i = 0; i < n; i++){
         if (a[i] == SoCanTim){
