@@ -57,7 +57,7 @@ int Max2(int a[100], int n, int Max1){
             MAX = a[i];
         }
     }
-    //printf("MAX = %d\n", MAX);
+    
     for (int i = Vt; i < n; i++){
         if (a[i] > MAX && a[i] < Max1)
             MAX = a[i];
