@@ -21,14 +21,14 @@ int main(){
     Vt = index(a, sopt, x);
     //Xuat ra man hinh so lon nhat
     if (SoLon1 == SoLon2)
-        printf("Khong co so lon thu 2.\n");
+        printf("\nKhong co so lon thu 2.");
     else
-        printf("So lon thu hai trong mang la: %d\n", SoLon2);
+        printf("\nSo lon thu hai trong mang la: %d", SoLon2);
     //Xuat ra man hinh vi tri xuat hien dau tien cua x
     if (Vt == -1)
-        printf("Khong tim thay %d trong mang.\n", x);
+        printf("\nKhong tim thay %d trong mang.", x);
     else
-        printf("Vi tri xuat hien dau tien cua %d la: %d\n", x, Vt);
+        printf("\nVi tri xuat hien dau tien cua %d la: %d", x, Vt);
 }
 
 void NhapMang(int a[100], int n){
