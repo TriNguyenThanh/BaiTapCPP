@@ -7,6 +7,7 @@ int index(int a[100], int n, int SoCanTim);
 
 int main(){
     int sopt, a[100], SoLon2, SoLon1, Vt, x;
+    printf("Nguyen Thanh Tri\n");
     printf("Nhap so phan tu cua mang: ");
     scanf("%d", &sopt);
 
