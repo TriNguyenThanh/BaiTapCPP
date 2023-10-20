@@ -56,7 +56,7 @@ float DTB(SV a[], int n){
     for (int i = 0; i < n; i++){
         S += a[i].diemTB; 
     }
-    return S/n;
+    return S;
 }
 // Xuat 1 danh sach sinh vien
 // Tinh tong diem trung binh cua ca lop
@@ -67,5 +67,5 @@ int main(){
     scanf("%d", &n);
     NhapDS(sv, n);
     XuatDS(sv, n);
-    printf("Diem trung binh cua ca lop la: %.2f", DTB(sv, n));
+    printf("Tong diem trung binh cua ca lop la: %.2f", DTB(sv, n));
 }
