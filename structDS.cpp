@@ -3,13 +3,10 @@
 #include<conio.h>
 typedef struct date{
     int ngay, thang, nam;
-
-
 }time;
 
-
 typedef struct SinhVien {
-    char MSSV[10];
+    char MSSV[15];
     char Hoten[50];
     float diemTB;
     time ngaySinh;
@@ -17,30 +14,29 @@ typedef struct SinhVien {
 
 bool ktNgay(int ngay, int thang, int nam){
     if (thang == 1 || thang == 3 || thang == 5 || thang == 7 || thang == 8 || thang == 10 || thang == 12){
-        if (1 <= ngay && ngay <= 31){
+        if (1 <= ngay && ngay <= 31)
             return true;
-        }
     }else if (thang == 4 || thang == 6 || thang == 9 || thang == 11){
-        if (1 <= ngay && ngay <= 30){
+        if (1 <= ngay && ngay <= 30)
             return true;
-    }elif (thang == 2){
-        if (nam % 4 == 0)
+    }else if (thang == 2){
+        if (nam % 4 == 0){
             if (1 <= ngay && ngay <= 29)
                 return true;
-        else
-            if (1<= ngay && ngay <= 28)
-                return true;
+        }else{
+            if (1 <= ngay && ngay <= 28)
+                return true;  
+        }
     }
+    printf("-----Nhap sai dinh dang-----\n");
     return false;
 }
 
 void NhapNgay(time &t){
-    bool nhaplai = true;
     do{
         printf("Nhap ngay, thang, nam: ");
         scanf("%d%d%d", &t.ngay, &t.thang, &t.nam);
-        
-    }
+    }while (!ktNgay(t.ngay, t.thang, t.nam));
 }
 
 void XuatNgay(time &t){
@@ -52,7 +48,7 @@ void NhapSV(SV &a){
     printf("Nhap ma sinh vien: ");
     scanf("%s", &a.MSSV);
     fflush(stdin);
-    printf("Nhap Ho va ten sinh vien: ");
+    printf("Nhap ho va ten sinh vien: ");
     gets(a.Hoten);
     printf("Nhap diem trung binh: ");
     scanf("%f", &a.diemTB);
