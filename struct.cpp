@@ -2,52 +2,55 @@
 #include<stdio.h>
 typedef struct date{
     int ngay, thang, nam;
+
+    void input(){
+        scanf("%d%d%d",&ngay,&thang,&nam);
+    }
+    void print(){
+        printf("%d/%d/%d",ngay,thang,nam);
+    }
 }Ngay;
 typedef struct SinhVien{
     char MSSV[10];
     char hoTen[50];
     float diemTB;
-    Ngay ngaySinh;  
+    Ngay ngaySinh;
+
+    void print(){
+        printf("Ma sinh vien: %s", MSSV);
+        printf("Ten: %s", hoTen);
+        printf("GPA: %.2f", diemTB);
+    }
+
+    void input(){
+        printf("Nhap MSSV: ");
+        scanf("%s",&MSSV);
+        fflush(stdin);
+        printf("Nhap ten: ");
+        gets(hoTen);
+        printf("Nhap diem trung binh: ");
+        scanf("%f",&diemTB);
+        printf("Nhap ngay sinh: ");
+        ngaySinh.input();
+    }
 }SV;
 // nhap dung dinh dang cua ngay thang nam
 // nhap thang 1: 31
 // ve nha lam
-void NhapNgay(Ngay &d){
-    scanf("%d%d%d",&d.ngay,&d.thang,&d.nam);
-}
-void XuatNgay(Ngay d){
-    printf("%d/%d/%d",d.ngay,d.thang,d.nam);
-}
-void NhapSV(SV &a){
-    printf("Nhap MSSV: ");
-    scanf("%s",&a.MSSV);
-    fflush(stdin);
-    printf("Nhap ten: ");
-    gets(a.hoTen);
-    printf("Nhap diem trung binh: ");
-    scanf("%f",&a.diemTB);
-    printf("Nhap ngay sinh: ");
-    NhapNgay(a.ngaySinh);
-}
-void XuatSV(SV a){
-    printf("MSSV: %s", a.MSSV);
-    printf("\nHo ten: %s", a.hoTen);
-    printf("\nDiem TB: %.2f",a.diemTB);
-    printf("\nNgay sinh: ");
-    XuatNgay(a.ngaySinh);
-}
+
+
 // Nhap 1 danh sach sinh vien
 void NhapDS(SV a[], int n){
     for(int i=0;i<n;i++){
-        printf("\nNhap thong tin sinh vien thu %d: ", i);
-        NhapSV(a[i]);
+        printf("\nNhap thong tin sinh vien thu %d: \n", i+1);
+        a[i].input();
     }
 }
 
 void XuatDS(SV a[], int n){
     for (int i = 0; i < n; i++){
         printf("\nThong tin sv thu %d vua nhap la: \n", i+1);
-        XuatSV(a[i]);
+        a[i].print();
     }
 }
 
