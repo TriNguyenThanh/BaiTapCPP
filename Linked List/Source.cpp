@@ -1,28 +1,28 @@
 #include <iostream>
 using namespace std;
 
-struct Node
+struct node
 {
 	int data;
-	Node *next;
+	node *next;
 };
 struct LinkedList
 {
-	Node *head;
-	Node *tail;
+	node *head;
+	node *tail;
 };
 
-Node* creNode(int data);
+node* creNode(int data);
 void creLinkedList(LinkedList &l);
-void addHead(LinkedList &l, Node *ptr);
-void addTail(LinkedList &l, Node *ptr);
-void add_after_Q(LinkedList &l, Node *Q, Node *ptr);
+void addHead(LinkedList &l, node *ptr);
+void addTail(LinkedList &l, node *ptr);
+void add_after_Q(LinkedList &l, node *Q, node *ptr);
 void reHead(LinkedList &l);
 void remove_after_Q(LinkedList &l, Node *Q);
 void removeLinkedList(LinkedList &l);
 void ouput(LinkedList l);
-Node* get(LinkedList l, int index);
-Node* find(LinkedList l, int value);
+node* get(LinkedList l, int index);
+node* find(LinkedList l, int value);
 int length(LinkedList l);
 
 int main(){
@@ -30,8 +30,8 @@ int main(){
 	return 0;
 }
 
-Node* creNode(int n){
-	Node *ptr = new Node;
+node* creNode(int n){
+	node *ptr = new node;
 	ptr->data = n;
 	ptr->next = NULL;
 
@@ -43,7 +43,7 @@ void creLinkedList(LinkedList &l){
 	l.tail = NULL;
 }
 //Add
-void addHead(LinkedList &l, Node *ptr){
+void addHead(LinkedList &l, node *ptr){
 	if (l.head == NULL){
 		l.head = ptr;
 		l.tail = ptr;
@@ -53,7 +53,7 @@ void addHead(LinkedList &l, Node *ptr){
 	}
 }
 
-void addTail(LinkedList &l, Node *ptr){
+void addTail(LinkedList &l, node *ptr){
 	if (l.tail == NULL){
 		l.head = ptr;
 		l.tail = ptr;
@@ -63,7 +63,7 @@ void addTail(LinkedList &l, Node *ptr){
 	}
 }
 
-void add_after_Q(LinkedList &l, Node *Q, Node *ptr){
+void add_after_Q(LinkedList &l, node *Q, node *ptr){
 	if(Q == NULL){
 		addHead(l,ptr);
 	}else{
@@ -79,7 +79,7 @@ void add_after_Q(LinkedList &l, Node *Q, Node *ptr){
 //remove
 void removeHead(LinkedList &l){
 	if(l.head != NULL){
-		Node *temp = l.head;
+		node *temp = l.head;
 		l.head = temp->next;
 
 		if (l.head == NULL){
@@ -89,9 +89,9 @@ void removeHead(LinkedList &l){
 	}
 }
 
-void remove_after_Q(LinkedList &l, Node *Q){
+void remove_after_Q(LinkedList &l, node *Q){
 	if (Q != NULL && l.tail != Q){
-		Node *temp = Q->next;
+		node *temp = Q->next;
 		if (temp->next == NULL){
 			l.tail = Q;
 			Q->next = NULL;
@@ -104,7 +104,7 @@ void remove_after_Q(LinkedList &l, Node *Q){
 
 void removeLinkedList(LinkedList &l){
 	while(l.head != NULL){
-		Node *tmp = l.head;
+		node *tmp = l.head;
 		l.head = tmp->next;
 		delete tmp;
 	}
@@ -114,8 +114,8 @@ void removeLinkedList(LinkedList &l){
 //print linked list
 void ouput(LinkedList l){
 	if (l.head != NULL){
-		Node *temp = l.head;
-		cout << "["
+		node *temp = l.head;
+		cout << "[";
 		while(temp != NULL){
 			cout << temp->data << ", ";
 			temp = temp->next;
@@ -124,8 +124,8 @@ void ouput(LinkedList l){
 	}
 }
 //get node
-Node* getNode(LinkedList l, int index){
-	Node *tmp = l.head;
+node* getNode(LinkedList l, int index){
+	node *tmp = l.head;
 	int i = 0;
 	while(tmp != NULL && i <= index){
 		if(i == index) return tmp;
@@ -138,8 +138,8 @@ Node* getNode(LinkedList l, int index){
 
 }
 //find
-Node* find(LinkedList l, int value){
-	Node *tmp = l.head;
+node* find(LinkedList l, int value){
+	node *tmp = l.head;
 	while(tmp != NULL){
 		if(tmp->data == value){
 			return tmp;
@@ -152,7 +152,7 @@ Node* find(LinkedList l, int value){
 //count
 int length(LinkedList l){
 	int d = 0;
-	Node *tmp = l.head;
+	node *tmp = l.head;
 	while(tmp != NULL){
 		d++;
 		tmp = tmp->next;
