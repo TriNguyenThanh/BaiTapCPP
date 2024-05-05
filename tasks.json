@@ -9,7 +9,7 @@
                 "-FilePath",
                 "\"cmd.exe\"",
                 "-ArgumentList",
-                "/c g++ ${file} -o ${fileDirname}\\${fileBasenameNoExtension}.exe &${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "/c if exist ${fileBasenameNoExtension}.exe (del ${fileBasenameNoExtension}.exe &g++ ${fileBasenameNoExtension}.cpp -o ${fileBasenameNoExtension}.exe &${fileBasenameNoExtension}.exe &echo. &pause) else (g++ ${fileBasenameNoExtension}.cpp -o ${fileBasenameNoExtension}.exe &${fileBasenameNoExtension}.exe &echo. &pause)"
             ],
             "options": {
                 "cwd": "${fileDirname}"
